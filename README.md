@@ -15,6 +15,8 @@ form8ion plugin for projects protected by Socket security
 * [Usage](#usage)
   * [Installation](#installation)
   * [Example](#example)
+    * [Import](#import)
+    * [Execute](#execute)
 * [Contributing](#contributing)
   * [Dependencies](#dependencies)
   * [Verification](#verification)
@@ -36,14 +38,18 @@ $ npm install @form8ion/socket-security
 #### Import
 
 ```javascript
-import {scaffold} from '@form8ion/socket-security';
+import {scaffold, lift} from '@form8ion/socket-security';
 ```
 
 #### Execute
 
 ```javascript
 (async () => {
-  await scaffold({projectRoot: process.cwd()});
+  const projectRoot = process.cwd();
+
+  await scaffold({projectRoot});
+
+  await lift({projectRoot});
 })();
 ```
 

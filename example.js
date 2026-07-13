@@ -1,13 +1,17 @@
 // #### Import
 // remark-usage-ignore-next
 import stubbedFs from 'mock-fs';
-import {scaffold} from './lib/index.js';
+import {scaffold, lift} from './lib/index.js';
 
 // remark-usage-ignore-next
-stubbedFs();
+stubbedFs({'package.json': JSON.stringify({name: 'example-package'})});
 
 // #### Execute
 
 (async () => {
-  await scaffold({projectRoot: process.cwd()});
+  const projectRoot = process.cwd();
+
+  await scaffold({projectRoot});
+
+  await lift({projectRoot});
 })();
